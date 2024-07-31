@@ -12,27 +12,25 @@ namespace ApiPokemon.Services
 {
     public class UserService
     {
+        private readonly List<User> _users;
         private readonly PokedexContext _context;
         private readonly IConfiguration _configuration;
 
         public UserService(PokedexContext context, IConfiguration configuration)
         {
+            _users = PredefinedUsers.Get();
             _context = context;
             _configuration = configuration;
         }
 
-        public User? Authenticate(string username, string password)
+        public AuthenticateResponse? Authenticate(string username, string password)
         {
             var user = _context.Users.SingleOrDefault(u => u.Username == username && u.Password == password);
             if (user == null) return null;
 
             // authentication successful so generate jwt token
-            var token = GenerateJwtToken(user);
-
-            // remove password before returning
-            user.Password = null;
-
-            return user;
+            var token = GenerateJwtToken(user);    
+            return new AuthenticateResponse(user, token);
         }
 
         public User Register(User user)

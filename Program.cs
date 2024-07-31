@@ -14,6 +14,18 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000") // Reemplaza con la URL de tu frontend
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
 // Configurar DbContext
 builder.Services.AddDbContext<PokedexContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -85,13 +97,14 @@ var app = builder.Build();
 
 // Configurar el middleware de manejo de excepciones
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors("AllowSpecificOrigins");
 
 // Asegurar que la base de datos esté creada y seed con datos
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<PokedexContext>();
-    try
+  try
     {
         context.Database.EnsureCreated();
 
@@ -107,6 +120,7 @@ using (var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred while migrating or initializing the database.");
         throw; // Re-throw the exception to let the middleware handle it
     }
+    
 }
 
 if (app.Environment.IsDevelopment())

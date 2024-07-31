@@ -65,3 +65,9 @@
 /Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/obj/Debug/net6.0/ref/ApiPokemon.dll
 /Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/System.Data.SqlClient.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/runtimes/win-arm64/native/sni.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/runtimes/win-x64/native/sni.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/runtimes/win-x86/native/sni.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/josh/Documents/MEDIATRIX/pokemon/ApiPokemon/bin/Debug/net6.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll

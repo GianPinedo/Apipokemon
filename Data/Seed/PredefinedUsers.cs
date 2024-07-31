@@ -9,7 +9,7 @@ namespace ApiPokemon.Data.Seed
         {
             return new List<User>
             {
-                new User { Username = "user1", Password = "password1" },
+                new User { Username = "user1", Password = "123" },
                 new User { Username = "user2", Password = "password2" },
                 new User { Username = "admin", Password = "adminpass" },
             };
