@@ -63,6 +63,7 @@ namespace ApiPokemon.Services
             catch (Exception ex) when (ex is SqlException || ex is DbUpdateException)
             {
                 // Si hay un error de conexión, simplemente devolver null o manejar el error según sea necesario
+                Console.WriteLine("An error occurred while adding a new Pokemon.");
                 return null;
             }
         }
@@ -81,6 +82,7 @@ namespace ApiPokemon.Services
             catch (Exception ex) when (ex is SqlException || ex is DbUpdateException)
             {
                 // Manejar el error si ocurre durante la siembra de datos
+                Console.WriteLine("An error occurred while seeding the database with predefined data.");
             }
         }
     }
