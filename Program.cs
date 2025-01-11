@@ -106,13 +106,13 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<PokedexContext>();
   try
     {
-        context.Database.EnsureCreated();
+        //context.Database.EnsureCreated();
 
         var pokemonService = services.GetRequiredService<PokemonService>();
-        pokemonService.EnsureDataSeed();
+        //pokemonService.EnsureDataSeed();
 
         var userService = services.GetRequiredService<UserService>();
-        userService.EnsureDataSeed();
+        //userService.EnsureDataSeed();
     }
     catch (Exception ex)
     {

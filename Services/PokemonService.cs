@@ -24,7 +24,7 @@ namespace ApiPokemon.Services
             try
             {
                 //get all pokemons from the database
-                return _context.Pokemons.ToList();
+                //return _context.Pokemons.ToList();
 
                 /*
                 var query = _context.Pokemons.AsQueryable();
@@ -40,6 +40,7 @@ namespace ApiPokemon.Services
 
                 return query.ToList();
                 */
+                return PredefinedPokemons.Get();
             }
             catch (Exception ex) when (ex is SqlException || ex is DbUpdateException)
             {
